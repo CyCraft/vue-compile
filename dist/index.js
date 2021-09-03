@@ -34,7 +34,7 @@ const fast_glob_1 = __importDefault(require("fast-glob"));
 const lodash_clonedeep_1 = __importDefault(require("lodash.clonedeep"));
 const utils_1 = require("./utils");
 const compileScript_1 = require("./compileScript");
-const compileStyles_1 = require("./compileStyles");
+// import { compileStyles } from './compileStyles'
 const compileTemplate_1 = require("./compileTemplate");
 const writeSFC_1 = require("./writeSFC");
 const debug = debug_1.default('vue-compile:cli');
@@ -109,7 +109,7 @@ class VueCompile extends events_1.EventEmitter {
         const script = await compileScript_1.compileScript(sfc.descriptor.script, ctx);
         const scriptSetup = await compileScript_1.compileScript(sfc.descriptor.scriptSetup, ctx);
         const template = compileTemplate_1.compileTemplate(sfc.descriptor.template);
-        const styles = await compileStyles_1.compileStyles(sfc.descriptor.styles, ctx);
+        const styles = sfc.descriptor.styles;
         await writeSFC_1.writeSFC({
             scripts: [script, scriptSetup].filter(utils_1.isDefined).sort((a, b) => {
                 return a.loc.start > b.loc.start ? -1 : 1;

@@ -14,7 +14,7 @@ import {
   isDefined,
 } from './utils'
 import { compileScript } from './compileScript'
-import { compileStyles } from './compileStyles'
+// import { compileStyles } from './compileStyles'
 import { compileTemplate } from './compileTemplate'
 import { writeSFC } from './writeSFC'
 
@@ -137,7 +137,7 @@ class VueCompile extends EventEmitter {
     const script = await compileScript(sfc.descriptor.script, ctx)
     const scriptSetup = await compileScript(sfc.descriptor.scriptSetup, ctx)
     const template = compileTemplate(sfc.descriptor.template)
-    const styles = await compileStyles(sfc.descriptor.styles, ctx)
+    const styles = sfc.descriptor.styles
 
     await writeSFC(
       {
