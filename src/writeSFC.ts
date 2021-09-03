@@ -53,7 +53,7 @@ export const writeSFC = async (
         parts.push(`<style${stringifyAttrs(attrs)}></style>`)
       } else {
         parts.push(
-          `<style${stringifyAttrs(attrs)}>\n${style.content.trim()}\n</style>`,
+          `<style lang="sass"${stringifyAttrs(attrs)}>\n${style.content.trim()}\n</style>`,
         )
       }
     }

@@ -27,7 +27,7 @@ const writeSFC = async ({ scripts, styles, template, customBlocks, preserveTsBlo
                 parts.push(`<style${stringify_attributes_1.default(attrs)}></style>`);
             }
             else {
-                parts.push(`<style${stringify_attributes_1.default(attrs)}>\n${style.content.trim()}\n</style>`);
+                parts.push(`<style lang="sass"${stringify_attributes_1.default(attrs)}>\n${style.content.trim()}\n</style>`);
             }
         }
     }
